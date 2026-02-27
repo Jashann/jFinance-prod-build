@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/jFinance-prod-build/favicon.ico" />
+    <link rel="apple-touch-icon" href="/jFinance-prod-build/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JFinance</title>
+    <script>
+      // Handle redirect from 404.html for SPA routing on GitHub Pages
+      (function() {
+        var q = Object.fromEntries(new URLSearchParams(location.search));
+        if (q.p) {
+          history.replaceState(null, '', q.p);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/jFinance-prod-build/assets/index-CPH2Yqqd.js"></script>
+    <link rel="stylesheet" crossorigin href="/jFinance-prod-build/assets/index-BlBD0GTS.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
