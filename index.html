@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/jFinance-prod-build/favicon.ico" />
+    <link rel="apple-touch-icon" href="/jFinance-prod-build/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="JFinance" />
+    <link rel="manifest" href="/jFinance-prod-build/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+    <title>JFinance</title>
+    <script>
+      // Apply the persisted theme BEFORE React mounts, so the very first paint
+      // (loading spinner + iOS/Android status bar) is already themed instead of
+      // flashing white. ThemeContext keeps these localStorage keys in sync.
+      (function() {
+        try {
+          var root = document.documentElement;
+          var mode = localStorage.getItem('jf-theme-mode');
+          var active = localStorage.getItem('jf-active-theme');
+          var color = localStorage.getItem('jf-theme-color');
+          if (!mode) {
+            mode = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+          }
+          if (!active) { active = mode === 'dark' ? 'clarity-dark' : 'clarity'; }
+          if (!color) { color = mode === 'dark' ? '#161a21' : '#ffffff'; }
+          if (mode === 'dark') root.classList.add('dark');
+          root.setAttribute('data-theme-mode', mode);
+          root.setAttribute('data-active-theme', active);
+          root.style.background = color;
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', color);
+        } catch (e) {}
+      })();
+
+      // Handle redirect from 404.html for SPA routing on GitHub Pages
+      (function() {
+        var q = Object.fromEntries(new URLSearchParams(location.search));
+        if (q.p) {
+          var base = '/jFinance-prod-build';
+          history.replaceState(null, '', base + q.p);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/jFinance-prod-build/assets/index-tuULB18A.js"></script>
+    <link rel="modulepreload" crossorigin href="/jFinance-prod-build/assets/react-DH1ANOw6.js">
+    <link rel="modulepreload" crossorigin href="/jFinance-prod-build/assets/firebase-iE6GOvee.js">
+    <link rel="stylesheet" crossorigin href="/jFinance-prod-build/assets/index-VP0UQrkc.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
